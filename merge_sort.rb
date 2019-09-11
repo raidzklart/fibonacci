@@ -1,6 +1,8 @@
 def merge_sort(arr)
   return arr if arr.length < 2
-
+  left = merge_sort(arr.each_slice( (arr.size/2.0).round ).to_a.first)
+  right = merge_sort(arr.each_slice( (arr.size/2.0).round ).to_a.last)
+  merge(left, right)
 end
 
 def merge(arr1, arr2)
@@ -17,6 +19,5 @@ def merge(arr1, arr2)
   temp += (arr1 + arr2)
 end
 
-arr1 = [1,2,3]
-arr2 = [4,5,6]
-p merge arr1, arr2
+arr = [9,20,7,66,1,44,5,33,3,4,2,6,101]
+p merge_sort arr
